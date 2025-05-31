@@ -1,0 +1,117 @@
+footer {
+    background-color: #03092e;
+    color: var(--text-primary);
+    padding: 4rem 0 0 0;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #3498db;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newsletter-form input {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.newsletter-form button {
+    padding: 0.8rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #2980b9;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+/* .social-links a:hover {
+    color: #3498db;
+} */
+
+.social-links a:nth-child(1):hover {
+    color: #1877f2;
+}
+
+/* Instagram */
+.social-links a:nth-child(2):hover {
+    color: #e4405f;
+}
+
+/* Twitter/X */
+.social-links a:nth-child(3):hover {
+    color: #000000;
+}
+
+/* LinkedIn */
+.social-links a:nth-child(4):hover {
+    color: #0077b5;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    background: #243342;
+}
+
+.footer-bottom p {
+    color: #bdc3c7;
+    margin: 0;
+}
+

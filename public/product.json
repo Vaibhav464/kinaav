@@ -1,0 +1,157 @@
+{
+  "productContainer": [
+    {
+      "id": 1,
+      "name": "Adam n' eve Cocktail Wear Shirt",
+      "description": "Maroon cocktail shirt With Swarovski Crystal Logo",
+      "price": 1999,
+      "discountedPrice": 1299,
+      "image": "Cocktail_Wear/AnE_Maroon_Shirt.jpg",
+      "category": "cocktail",
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": 2,
+      "name": "Adam n' eve Cocktail Wear Dress",
+      "description": "Maroon cocktail Zipper Attire with Swarovski Crystal Logo",
+      "price": 2999,
+      "discountedPrice": 1999,
+      "image": "Cocktail_Wear/AnE_Maroon_Zipper.jpg",
+      "category": "cocktail",
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": 3,
+      "name": "Adam n' eve Relaxed Wear Pant",
+      "description": "Red Dhoti Pant",
+      "price": 1999,
+      "discountedPrice": 1299,
+      "image": "Relaxed_Wear/AnE_Red_Dhoti.jpg",
+      "category": "relaxed",
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": 4,
+      "name": "Adam n' eve Cocktail Wear Dress",
+      "description": "Black Multicolour Cotton Dress",
+      "price": 2999,
+      "discountedPrice": 1999,
+      "image": "Cocktail_Wear/AnE_Black_Cotton.jpg",
+      "category": "cocktail",
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": 5,
+      "name": "Adam n' eve Club Dress",
+      "description": "White fit n' flare gathered tube dress",
+      "price": 4999,
+      "discountedPrice": 2999,
+      "image": "Club/AnE_White_Dress.jpg",
+      "category": "club",
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": 6,
+      "name": "Adam n' eve Casual Tees",
+      "description": "Blood Red Cotton Lycra tees With Swarovski Crystal Logo",
+      "price": 1499,
+      "discountedPrice": 999,
+      "image": "Casual/AnE_Blood_Red_Tshirt.jpg",
+      "category": "casual",
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": 7,
+      "name": "Adam n' eve Corporate Shirt",
+      "description": "Total Eclipse Corporate Cotton shirt With Swarovski Crystal Logo",
+      "price": 2999,
+      "discountedPrice": 1999,
+      "image": "Corporate/AnE_Corporate_Shirt.jpg",
+      "category": "corporate",
+      "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+      "id": 8,
+      "name": "Adam n' eve Cocktail Shirt",
+      "description": "halter neck Cotton Stretch Shirt White",
+      "price": 1999,
+      "discountedPrice": 1299,
+      "image": "Cocktail_Wear/AnE_White_Shirt.jpg",
+      "category": "cocktail",
+      "sizes": ["S", "M", "L", "XL"]
+    }
+  ],
+  "kinaavExclusiveProducts": [
+    {
+      "id": 101,
+      "name": "Kinaav green Moong Whole",
+      "description": "1Kg Pack",
+      "price": 249,
+      "discountedPrice": 249,
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "sizes": ["500g", "1KG"]
+    },
+    {
+      "id": 102,
+      "name": "Kinaav Corn/Maize Flour",
+      "description": "1Kg Pack",
+      "price": 149,
+      "discountedPrice": 149,
+      "image": "corn_flour.jpg",
+      "category": "flour",
+      "sizes": ["500g", "1KG"]
+    },
+    {
+      "id": 103,
+      "name": "Kinaav flour",
+      "description": "1Kg Pack",
+      "price": 149,
+      "discountedPrice": 149,
+      "image": "flour.jpg",
+      "category": "flour",
+      "sizes": ["500g", "1KG"]
+    },
+    {
+      "id": 104,
+      "name": "Kinaav Chana Whole",
+      "description": "1Kg Pack",
+      "price": 149,
+      "discountedPrice": 149,
+      "image": "Pulses/Chana_Whole.jpg",
+      "category": "pulses",
+      "sizes": ["500g", "1KG"]
+      
+    },
+    {
+      "id": 105,
+      "name": "Kinaav Chana Dal",
+      "description": "1Kg Pack",
+      "price": 149,
+      "discountedPrice": 149,
+      "image": "Pulses/Chana_Dal_1kg.jpg",
+      "category": "pulses",
+      "sizes": ["500g", "1KG"]
+    },
+    {
+      "id": 106,
+      "name": "Kinaav Jowar Flour",
+      "description": "1Kg Pack",
+      "price": 149,
+      "discountedPrice": 149,
+      "image": "Flour/Jowar_Flour_1kg.jpg",
+      "category": "flour",
+      "sizes": ["500g", "1KG"]
+    },
+    {
+      "id": 107,
+      "name": "Kinaav Bajra Flour",
+      "description": "1Kg Pack",
+      "price": 149,
+      "discountedPrice": 149,
+      "image": "Flour/Bajra_Flour_1kg.jpg",
+      "category": "flour",
+      "sizes": ["500g", "1KG"]
+    }
+  ]
+}
