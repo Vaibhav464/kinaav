@@ -147,8 +147,8 @@ const Navbar = () => {
             <div className="user-dropdown-content">
               <Link to="/login">Login/SignUp</Link>
               <Link to="/orders">Orders</Link>
-              <Link className="disabled" to="/account">My Account</Link>
-              <Link className="disabled" to="/address">Address</Link>
+              <Link to="/account">My Account</Link>
+              {/* <Link className="disabled" to="/address">Address</Link> */}
             </div>
           </div>
 

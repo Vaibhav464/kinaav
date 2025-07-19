@@ -4,6 +4,7 @@ import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import MyAccount from './pages/MyAccount';
 import OrderPage from './pages/OrderPage';
 import Home from './pages/Home';
 import Products from './pages/Products';
@@ -64,6 +65,7 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/account" element={<MyAccount />} />
           <Route path="/orders" element={<OrderPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/products" element={<Products />} />
