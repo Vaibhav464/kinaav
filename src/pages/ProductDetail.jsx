@@ -16,6 +16,7 @@ const ProductDetail = () => {
   const [pincode, setPincode] = useState('');
   const [deliveryCharge, setDeliveryCharge] = useState(null);
   const zoomRef = useRef(null);
+  const [selectedVariant, setSelectedVariant] = useState(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -27,9 +28,11 @@ const ProductDetail = () => {
         const data = await response.json();
         // Combine products from both categories
         const allProducts = [...data.productContainer, ...data.kinaavExclusiveProducts];
-        const foundProduct = allProducts.find((p) => p.id === parseInt(id));
+        // Support string and number id
+        const foundProduct = allProducts.find((p) => p.id === parseInt(id) || p.id === id);
         if (foundProduct) {
           setProduct(foundProduct);
+          setSelectedVariant(foundProduct.variants ? foundProduct.variants[0] : null);
         } else {
           setError('Product not found');
         }
@@ -39,7 +42,6 @@ const ProductDetail = () => {
         setLoading(false);
       }
     };
-
     fetchProduct();
   }, [id]);
 
@@ -75,9 +77,13 @@ const ProductDetail = () => {
   if (error) return <div className='error'>Error: {error}</div>;
   if (!product) return <div>Product not found</div>;
 
-  const discountPercentage = Math.round(
-    ((product.price - product.discountedPrice) / product.price) * 100
-  );
+  // Determine if this is a size-based or weight-based product
+  const isSizeBased = product.variants && product.variants[0] && product.variants[0].size;
+  const isWeightBased = product.variants && product.variants[0] && product.variants[0].weight;
+
+  const discountPercentage = selectedVariant ? Math.round(
+    ((selectedVariant.price - selectedVariant.discountedPrice) / selectedVariant.price) * 100
+  ) : 0;
 
   return (
     <div className="product-detail">
@@ -97,25 +103,32 @@ const ProductDetail = () => {
         <div className="product-info-2">
           <h2>{product.name}</h2>
           <p className="price">
-            <del>₹{product.price}</del>&nbsp; 
-            <ins>₹{product.discountedPrice}</ins>&nbsp; 
-            <span className="discount">({discountPercentage}% off)</span>
+            <del>₹{selectedVariant ? selectedVariant.price : ''}</del>&nbsp; 
+            <ins>₹{selectedVariant ? selectedVariant.discountedPrice : ''}</ins>&nbsp; 
+            {selectedVariant && <span className="discount">({discountPercentage}% off)</span>}
           </p>
           <p className="description">{product.description}</p>
           <div className="sizes">
-            <h4>Available Sizes:</h4>
-            {product.sizes && product.sizes.length > 0 ? (
-    <ul>
-      {product.sizes.map((size, index) => (
-        <li key={index}>{size}</li>
-      ))}
-    </ul>
-  ) : (
-    <p>No sizes available</p>
-  )}
+            <h4>Available {isSizeBased ? 'Sizes' : isWeightBased ? 'Weights' : 'Variants'}:</h4>
+            {product.variants && product.variants.length > 0 ? (
+              <ul className="variant-selector">
+                {product.variants.map((variant, index) => (
+                  <li key={index}>
+                    <button
+                      className={selectedVariant === variant ? 'selected' : ''}
+                      onClick={() => setSelectedVariant(variant)}
+                    >
+                      {isSizeBased ? variant.size : isWeightBased ? variant.weight : 'Variant'}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No variants available</p>
+            )}
           </div>
           <div className="actions">
-            <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
+            <button className="add-to-cart-btn" onClick={() => selectedVariant && addToCart({ ...product, ...selectedVariant })} disabled={!selectedVariant}>
               Add to Cart
             </button>
             <button className="share-btn" onClick={handleShare}>

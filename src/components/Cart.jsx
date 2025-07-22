@@ -32,6 +32,11 @@ const Cart = ({ onClose }) => {
               <img src={`/img/${item.image}`} alt={item.name} />
               <div className="content">
                 <div className="name">{item.name}</div>
+                {(item.size || item.weight) && (
+                  <div className="variant-info">
+                    {item.size ? `Size: ${item.size}` : `Weight: ${item.weight}`}
+                  </div>
+                )}
                 <div className="item-price">₹{item.discountedPrice.toLocaleString()} / 1 product</div>
               </div>
               <div className="quantity">
