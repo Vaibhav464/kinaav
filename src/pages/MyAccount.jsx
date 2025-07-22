@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/navbar.css';
+import { supabase } from '../lib/supabaseClient';
+import { useNavigate } from 'react-router-dom';
 
 const MyAccount = () => {
   const [activeTab, setActiveTab] = useState('profile');
+  const navigate = useNavigate();
 
   // Mock user data
   const user = {
@@ -64,6 +67,15 @@ const MyAccount = () => {
                 <p><strong>Email:</strong> {user.email}</p>
                 <p><strong>Address:</strong> {user.address}</p>
               </div>
+              <button
+                className="my-account-logout-button"
+                onClick={async () => {
+                  await supabase.auth.signOut();
+                  navigate('/');
+                }}
+              >
+                Logout
+              </button>
             </section>
           )}
 
