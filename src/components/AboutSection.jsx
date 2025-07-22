@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/section-1.css';
-import '../styles/section-3.css';
+import React, { useState, useEffect } from "react";
+import "../styles/section-1.css";
+import "../styles/section-3.css";
 
 const AboutSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    { image: '/img/Kinaav.jpg', alt: 'Kinaav Brand' },
-    { image: '/img/Adam_n_eve.jpg', alt: 'Adam and Eve Brand' },
-    { image: '/img/69_logo.jpg', alt: 'SR69 Brand' },
+    { image: "/img/Kinaav.jpg", alt: "Kinaav Brand" },
+    { image: "/img/Adam_n_eve.jpg", alt: "Adam and Eve Brand" },
+    { image: "/img/69_logo.jpg", alt: "SR69 Brand" },
   ];
 
   // Auto-slide functionality
@@ -25,8 +25,11 @@ const AboutSection = () => {
       <h2>About Us</h2>
       <div className="about-container">
         <div className="slider-container-2">
-          <div className="slider-2" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-          {slides.map((slide, index) => (
+          <div
+            className="slider-2"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {slides.map((slide, index) => (
               <div key={index} className="slides">
                 <img src={slide.image} alt={slide.alt} />
               </div>
@@ -42,8 +45,8 @@ const AboutSection = () => {
           <p className="description">
             Kinaav is a renowned company manufacturing for international
             retailers, featuring exclusive brands like Adam & Eve and SR69. We
-            offer a unique blend of casual and high fashion clothing,
-            including trendy women's wear and comfortable men's sportswear.
+            offer a unique blend of casual and high fashion clothing, including
+            trendy women's wear and comfortable men's sportswear.
           </p>
 
           <div className="brands-showcase">
