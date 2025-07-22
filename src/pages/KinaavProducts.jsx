@@ -52,6 +52,8 @@ const KinaavProducts = () => {
   const categories = [
     { name: 'Flour', key: 'flour' },
     { name: 'Pulses', key: 'pulses' },
+    { name: 'Millets', key: 'millet' },
+    { name: 'Spices', key: 'spice' },
   ];
 
   if (loading) {
