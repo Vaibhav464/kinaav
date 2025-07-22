@@ -78,18 +78,43 @@ a{
   margin-bottom: 20px;
 }
 
-.sizes ul {
+.sizes ul,
+.variant-selector {
   list-style: none;
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  padding: 0;
 }
 
-.sizes li {
-  padding: 8px 12px;
+.sizes li,
+.variant-selector li {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.variant-selector button {
+  padding: 8px 16px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  background: #f9f9f9;
   cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s, border 0.2s;
+}
+
+.variant-selector button.selected,
+.variant-selector button:focus {
+  background: #28a745;
+  color: #fff;
+  border: 1.5px solid #28a745;
+  outline: none;
+}
+
+.variant-selector button:not(.selected):hover {
+  background: #e6f7ea;
+  border-color: #28a745;
 }
 
 .actions {
@@ -174,13 +199,20 @@ a{
     font-size: 18px;
   }
 
-  .sizes ul {
+  .sizes ul,
+  .variant-selector {
     flex-wrap: wrap; /* Allow sizes to wrap onto multiple lines if needed */
     gap: 8px;
   }
 
-  .sizes li {
+  .sizes li,
+  .variant-selector li {
     padding: 6px 10px;
+  }
+
+  .variant-selector button {
+    padding: 6px 12px;
+    font-size: 14px;
   }
 
   .actions {
