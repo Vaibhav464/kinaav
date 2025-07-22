@@ -12,7 +12,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [emailValid, setEmailValid] = useState(null);
   const [passwordValid, setPasswordValid] = useState(null);
-  const [isSignUp, setIsSignUp] = useState(false);
   const navigate = useNavigate();
 
   // Email validation function
@@ -24,6 +23,12 @@ const Login = () => {
   // Password validation function
   const validatePassword = (password) => {
     return password.length >= 8; // Minimum 8 characters
+  };
+
+  // Forgot password handler (placeholder)
+  const handleForgotPassword = () => {
+    // TODO: Implement password reset logic or navigation
+    alert('Forgot password clicked!');
   };
 
   // Handle email input change with validation
@@ -52,45 +57,26 @@ const Login = () => {
       setLoading(true);
       setError('');
       
-      if (isSignUp) {
-        // Sign up new user
-        const { data, error } = await supabase.auth.signUp({
-          email,
-          password,
-        });
-        
-        if (error) throw error;
-        
-        if (data.user && !data.user.email_confirmed_at) {
-          setError('Please check your email for a confirmation link before signing in.');
-          setIsSignUp(false); // Switch back to login mode
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      
+      if (error) {
+        if (error.message.includes('Invalid login credentials') || 
+            error.message.includes('Email not confirmed')) {
+          setError('Invalid email or password. If you don\'t have an account, please sign up first.');
         } else {
-          navigate('/');
+          throw error;
         }
       } else {
-        // Sign in existing user
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        
-        if (error) {
-          if (error.message.includes('Invalid login credentials') || 
-              error.message.includes('Email not confirmed')) {
-            setError('Invalid email or password. If you don\'t have an account, please sign up first.');
-          } else {
-            throw error;
-          }
-        } else {
-          navigate('/');
-        }
+        navigate('/');
       }
     } catch (error) {
       if (error.message.includes('User already registered')) {
         setError('This email is already registered. Please sign in instead.');
-        setIsSignUp(false);
       } else {
-        setError(error.message || `Error ${isSignUp ? 'signing up' : 'logging in'}. Please try again.`);
+        setError(error.message || `Error logging in. Please try again.`);
       }
     } finally {
       setLoading(false);
@@ -142,7 +128,7 @@ const Login = () => {
       </div>
       <div className="login-right">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>{isSignUp ? 'Sign Up' : 'Login'}</h2>
+        <h2>Login</h2>
         {error && <p className="error">{error}</p>}
         <label htmlFor="email">Email</label>
         <div className="input-wrapper">
@@ -172,24 +158,23 @@ const Login = () => {
         {passwordValid === true && <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />}
         {passwordValid === false && <FontAwesomeIcon icon={faTimesCircle} className="error-icon" />}
         </div>
-        <button type="submit" disabled={loading}>
-          {loading ? (isSignUp ? 'Signing up...' : 'Logging in...') : (isSignUp ? 'Sign Up' : 'Log In')} 
-          {!loading && <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '8px' }} />}
-        </button>
+        <div className="login-actions-row">
+          <button type="submit" disabled={loading} className="login-action-btn">
+            {loading ? 'Logging in...' : 'Log In'}
+            {!loading && <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '8px' }} />}
+          </button>
+          <button
+            type="button"
+            className="login-action-btn forgot-password-btn"
+            onClick={handleForgotPassword}
+          >
+            Forgot Password?
+          </button>
+        </div>
       </form>
       <div className="signup-section">
           <p>
-            {isSignUp ? 'Already have an account?' : "Don't have an account?"} 
-            <button 
-              type="button" 
-              onClick={() => {
-                setIsSignUp(!isSignUp);
-                setError('');
-              }}
-              style={{ background: 'none', border: 'none', color: 'inherit', textDecoration: 'underline', cursor: 'pointer', padding: '0', margin: '0 0 0 5px' }}
-            >
-              <b>{isSignUp ? 'Sign In' : 'Sign Up'}</b>
-            </button>
+            Don't have an account? <Link to="/signup"><b>Sign Up</b></Link>
           </p>
           <div className='btn'>
           <button className="google-login" onClick={handleGoogleLogin} disabled={loading}>

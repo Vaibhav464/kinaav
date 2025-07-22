@@ -495,7 +495,6 @@ header {
 }
 
 .login-form button[type="submit"] {
-  /* ...existing styles... */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -510,74 +509,323 @@ header {
   transition: transform 0.3s ease;
 }
 
-/* Orders */
 
-.order-page {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.order-list {
+.login-actions-row {
+  height: 3rem;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  margin-bottom: 1rem;
 }
 
-.order-item {
+.login-action-btn {
+  width: 50%;
+  padding: 0.75rem;
+  background-color: rgb(147 51 234);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  background-color: #f9f9f9;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.login-action-btn:hover {
+  background-color: #7E22CE;
+}
+
+.forgot-password-btn {
+  background-color: #6d28d9;
+}
+
+.forgot-password-btn:hover {
+  background-color: #4c1d95;
+}
+
+/* MyAccount */
+
+.my-account-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.my-account-wrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.my-account-sidebar {
+  width: 250px;
+  background-color: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.order-image {
-  width: 100px;
-  height: 100px;
+.my-account-user-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.my-account-user-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   object-fit: cover;
-  margin-right: 20px;
-  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
-.order-details {
+.my-account-user-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.my-account-nav {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.order-detail {
+.my-account-nav-item {
+  padding: 10px;
   font-size: 16px;
+  color: #555;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
 }
 
-.order-detail span {
+.my-account-nav-item:hover {
+  color: #007bff;
+  background-color: #e9ecef;
+}
+
+.my-account-nav-item.active {
+  color: #007bff;
+  background-color: #e9ecef;
+  border-left: 4px solid #007bff;
+}
+
+.my-account-main {
+  flex: 1;
+}
+
+.my-account-title {
+  font-size: 28px;
   font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
 }
 
-/* Responsive design */
+.my-account-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.my-account-section-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.my-account-profile-details {
+  font-size: 16px;
+  color: #555;
+}
+
+.my-account-profile-details p {
+  margin-bottom: 10px;
+}
+
+.my-account-profile-details strong {
+  color: #333;
+}
+
+.my-account-no-orders {
+  font-size: 16px;
+  color: #777;
+}
+
+.my-account-orders {
+  display: grid;
+  gap: 15px;
+}
+
+.my-account-order-card {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.my-account-order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.my-account-order-date {
+  font-size: 14px;
+  color: #777;
+}
+
+.my-account-order-details p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.my-account-order-details strong {
+  color: #333;
+}
+
+.my-account-order-status {
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.my-account-order-status.delivered {
+  background-color: #28a745;
+}
+
+.my-account-order-status.processing {
+  background-color: #ffc107;
+}
+
+.my-account-order-status.shipped {
+  background-color: #17a2b8;
+}
+
+.my-account-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.my-account-settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.my-account-settings-input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.my-account-settings-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 200px;
+}
+
+.my-account-settings-button:hover {
+  background-color: #0056b3;
+}
+
+.my-account-logout-button {
+  width: 13%;
+  padding: 12px 0;
+  margin-top: 20px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.my-account-logout-button:hover {
+  background-color: #c0392b;
+}
+
 @media (max-width: 768px) {
-  .order-item {
-    /* flex-direction: column; */
+  .my-account-wrapper {
+    flex-direction: column;
+  }
+
+  .my-account-sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .my-account-nav {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .my-account-settings-input,
+  .my-account-settings-button {
+    max-width: 100%;
+  }
+}
+
+/* Orders */
+
+.my-account-main {
+  flex: 1;
+}
+
+.my-account-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.my-account-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.my-account-order-details {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.my-account-order-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .my-account-order-details {
+    flex-direction: column;
     align-items: flex-start;
   }
 
-  .order-image {
+  .my-account-order-image {
     margin-right: 0;
     margin-bottom: 10px;
   }
 }
-
-@media (max-width: 480px) {
-  .order-page {
-    padding: 10px;
-  }
-
-  .order-item {
-    padding: 10px;
-  }
-
-  .order-detail {
-    font-size: 12px;
-  }
-} 
