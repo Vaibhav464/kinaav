@@ -4,154 +4,583 @@
       "id": 1,
       "name": "Adam n' eve Cocktail Wear Shirt",
       "description": "Maroon cocktail shirt With Swarovski Crystal Logo",
-      "price": 1999,
-      "discountedPrice": 1299,
       "image": "Cocktail_Wear/AnE_Maroon_Shirt.jpg",
       "category": "cocktail",
-      "sizes": ["S", "M", "L", "XL"]
+      "variants": [
+        { "size": "S", "price": 1999, "discountedPrice": 1299 },
+        { "size": "M", "price": 1999, "discountedPrice": 1299 },
+        { "size": "L", "price": 1999, "discountedPrice": 1299 },
+        { "size": "XL", "price": 1999, "discountedPrice": 1299 }
+      ]
     },
     {
       "id": 2,
       "name": "Adam n' eve Cocktail Wear Dress",
       "description": "Maroon cocktail Zipper Attire with Swarovski Crystal Logo",
-      "price": 2999,
-      "discountedPrice": 1999,
       "image": "Cocktail_Wear/AnE_Maroon_Zipper.jpg",
       "category": "cocktail",
-      "sizes": ["S", "M", "L", "XL"]
+      "variants": [
+        { "size": "S", "price": 2999, "discountedPrice": 1999 },
+        { "size": "M", "price": 2999, "discountedPrice": 1999 },
+        { "size": "L", "price": 2999, "discountedPrice": 1999 },
+        { "size": "XL", "price": 2999, "discountedPrice": 1999 }
+      ]
     },
     {
       "id": 3,
       "name": "Adam n' eve Relaxed Wear Pant",
       "description": "Red Dhoti Pant",
-      "price": 1999,
-      "discountedPrice": 1299,
       "image": "Relaxed_Wear/AnE_Red_Dhoti.jpg",
       "category": "relaxed",
-      "sizes": ["S", "M", "L", "XL"]
+      "variants": [
+        { "size": "S", "price": 1999, "discountedPrice": 1299 },
+        { "size": "M", "price": 1999, "discountedPrice": 1299 },
+        { "size": "L", "price": 1999, "discountedPrice": 1299 },
+        { "size": "XL", "price": 1999, "discountedPrice": 1299 }
+      ]
     },
     {
       "id": 4,
       "name": "Adam n' eve Cocktail Wear Dress",
       "description": "Black Multicolour Cotton Dress",
-      "price": 2999,
-      "discountedPrice": 1999,
       "image": "Cocktail_Wear/AnE_Black_Cotton.jpg",
       "category": "cocktail",
-      "sizes": ["S", "M", "L", "XL"]
+      "variants": [
+        { "size": "S", "price": 2999, "discountedPrice": 1999 },
+        { "size": "M", "price": 2999, "discountedPrice": 1999 },
+        { "size": "L", "price": 2999, "discountedPrice": 1999 },
+        { "size": "XL", "price": 2999, "discountedPrice": 1999 }
+      ]
     },
     {
       "id": 5,
       "name": "Adam n' eve Club Dress",
       "description": "White fit n' flare gathered tube dress",
-      "price": 4999,
-      "discountedPrice": 2999,
       "image": "Club/AnE_White_Dress.jpg",
       "category": "club",
-      "sizes": ["S", "M", "L", "XL"]
+      "variants": [
+        { "size": "S", "price": 4999, "discountedPrice": 2999 },
+        { "size": "M", "price": 4999, "discountedPrice": 2999 },
+        { "size": "L", "price": 4999, "discountedPrice": 2999 },
+        { "size": "XL", "price": 4999, "discountedPrice": 2999 }
+      ]
     },
     {
       "id": 6,
       "name": "Adam n' eve Casual Tees",
       "description": "Blood Red Cotton Lycra tees With Swarovski Crystal Logo",
-      "price": 1499,
-      "discountedPrice": 999,
       "image": "Casual/AnE_Blood_Red_Tshirt.jpg",
       "category": "casual",
-      "sizes": ["S", "M", "L", "XL"]
+      "variants": [
+        { "size": "S", "price": 1499, "discountedPrice": 999 },
+        { "size": "M", "price": 1499, "discountedPrice": 999 },
+        { "size": "L", "price": 1499, "discountedPrice": 999 },
+        { "size": "XL", "price": 1499, "discountedPrice": 999 }
+      ]
     },
     {
       "id": 7,
       "name": "Adam n' eve Corporate Shirt",
       "description": "Total Eclipse Corporate Cotton shirt With Swarovski Crystal Logo",
-      "price": 2999,
-      "discountedPrice": 1999,
       "image": "Corporate/AnE_Corporate_Shirt.jpg",
       "category": "corporate",
-      "sizes": ["S", "M", "L", "XL"]
+      "variants": [
+        { "size": "S", "price": 2999, "discountedPrice": 1999 },
+        { "size": "M", "price": 2999, "discountedPrice": 1999 },
+        { "size": "L", "price": 2999, "discountedPrice": 1999 },
+        { "size": "XL", "price": 2999, "discountedPrice": 1999 }
+      ]
     },
     {
       "id": 8,
       "name": "Adam n' eve Cocktail Shirt",
       "description": "halter neck Cotton Stretch Shirt White",
-      "price": 1999,
-      "discountedPrice": 1299,
       "image": "Cocktail_Wear/AnE_White_Shirt.jpg",
       "category": "cocktail",
-      "sizes": ["S", "M", "L", "XL"]
+      "variants": [
+        { "size": "S", "price": 1999, "discountedPrice": 1299 },
+        { "size": "M", "price": 1999, "discountedPrice": 1299 },
+        { "size": "L", "price": 1999, "discountedPrice": 1299 },
+        { "size": "XL", "price": 1999, "discountedPrice": 1299 }
+      ]
     }
   ],
   "kinaavExclusiveProducts": [
     {
-      "id": 101,
+      "id": "KPGMW",
       "name": "Kinaav green Moong Whole",
-      "description": "1Kg Pack",
-      "price": 249,
-      "discountedPrice": 249,
+      "description": "Green Moong Whole",
+      "image": "Pulses/KPGMW01/KPGMW01  (3).jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPGMW01", "price": 399, "discountedPrice": 199 },
+        { "weight": "500g", "sku": "KPGMW005", "price": 199, "discountedPrice": 99 }
+      ]
+    },
+    {
+      "id": "KPGMS",
+      "name": "Kinaav Green Moong Dal (Split)",
+      "description": "Kinaav Green Moong Dal (Split)",
       "image": "green_moong.jpg",
       "category": "pulses",
-      "sizes": ["500g", "1KG"]
+      "variants": [
+        { "weight": "1kg", "sku": "KPGMS01", "price": 399, "discountedPrice": 199 }
+      ]
     },
     {
-      "id": 102,
-      "name": "Kinaav Corn/Maize Flour",
-      "description": "1Kg Pack",
-      "price": 149,
-      "discountedPrice": 149,
-      "image": "corn_flour.jpg",
-      "category": "flour",
-      "sizes": ["500g", "1KG"]
-    },
-    {
-      "id": 103,
-      "name": "Kinaav flour",
-      "description": "1Kg Pack",
-      "price": 149,
-      "discountedPrice": 149,
-      "image": "flour.jpg",
-      "category": "flour",
-      "sizes": ["500g", "1KG"]
-    },
-    {
-      "id": 104,
-      "name": "Kinaav Chana Whole",
-      "description": "1Kg Pack",
-      "price": 149,
-      "discountedPrice": 149,
-      "image": "Pulses/Chana_Whole.jpg",
+      "id": "KPGMD",
+      "name": "Kinaav Green Moong Dal (Dhuli)",
+      "description": "Kinaav Green Moong Dal (Dhuli)",
+      "image": "green_moong.jpg",
       "category": "pulses",
-      "sizes": ["500g", "1KG"]
-      
+      "variants": [
+        { "weight": "1kg", "sku": "KPGMD01", "price": 399, "discountedPrice": 199 }
+      ]
     },
     {
-      "id": 105,
-      "name": "Kinaav Chana Dal",
-      "description": "1Kg Pack",
-      "price": 149,
-      "discountedPrice": 149,
-      "image": "Pulses/Chana_Dal_1kg.jpg",
+      "id": "KPDKC",
+      "name": "Kinaav Desi Kala Chana (Whole)",
+      "description": "Kinaav Desi Kala Chana",
+      "image": "green_moong.jpg",
       "category": "pulses",
-      "sizes": ["500g", "1KG"]
+      "variants": [
+        { "weight": "1kg", "sku": "KPDKC01", "price": 399, "discountedPrice": 199 },
+        { "weight": "500g", "sku": "KPDKC005", "price": 199, "discountedPrice": 99 }
+      ]
     },
     {
-      "id": 106,
-      "name": "Kinaav Jowar Flour",
-      "description": "1Kg Pack",
-      "price": 149,
-      "discountedPrice": 149,
-      "image": "Flour/Jowar_Flour_1kg.jpg",
-      "category": "flour",
-      "sizes": ["500g", "1KG"]
+      "id": "KPDGC",
+      "name": "Kinaav Desi Green Chana (Whole)",
+      "description": "Kinaav Desi Kala Chana",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPDGC01", "price": 399, "discountedPrice": 199 },
+        { "weight": "500g", "sku": "KPDGC005", "price": 199, "discountedPrice": 99 }
+      ]
     },
     {
-      "id": 107,
-      "name": "Kinaav Bajra Flour",
-      "description": "1Kg Pack",
-      "price": 149,
-      "discountedPrice": 149,
-      "image": "Flour/Bajra_Flour_1kg.jpg",
+      "id": "KPCD",
+      "name": "Kinaav Chana Dal (Split)",
+      "description": "Kinaav Chana Dal (Split)",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPCD01", "price": 299, "discountedPrice": 149 }
+      ]
+    },
+    {
+      "id": "KPBUW",
+      "name": "Kinaav Black Urad (Whole)",
+      "description": "Kinaav Black Urad (Whole)",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPBUW01", "price": 399, "discountedPrice": 199 },
+        { "weight": "500g", "sku": "KPBUW005", "price": 199, "discountedPrice": 99 }
+      ]
+    },
+    {
+      "id": "KPBUS",
+      "name": "Kinaav Black Urad (Split)",
+      "description": "Kinaav Black Urad (Split)",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPBUS01", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KPBUD",
+      "name": "Kinaav Black Urad (Dhuli)",
+      "description": "Kinaav Black Urad (Dhuli)",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPBUD01", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KPAD",
+      "name": "Kinaav Arhar Dal",
+      "description": "Kinaav Arhar/Toor Dal",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPAD01", "price": 399, "discountedPrice": 199 },
+        { "weight": "500g", "sku": "KPAD005", "price": 199, "discountedPrice": 99 }
+      ]
+    },
+    {
+      "id": "KPMMD",
+      "name": "Kinaav Malka Masoor Dal",
+      "description": "Kinaav Malka Masoor Dal",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPMMD01", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KPBMD",
+      "name": "Kinaav Black Masoor Dal",
+      "description": "Kinaav Black Masoor Dal",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPBMD01", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KPKRR",
+      "name": "Kinaav Kashmiri Red Rajma",
+      "description": "Kinaav Kashmiri Red Rajma",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPKRR01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KPKRR005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KPPRRKB",
+      "name": "Kinaav Punjabi Red Rajma Kidney Beans",
+      "description": "Kinaav Punjabi Red Rajma Kidney Beans",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPPRRKB01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KPPRRKB005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KPRCWKB",
+      "name": "Kinaav Rajma Chithra (Whole) Kidney Beans",
+      "description": "Kinaav Rajma Chithra (Whole) Kidney Beans",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPRCWKB01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KPRCWKB005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KPCFP",
+      "name": "Kinaav Corn for Popcorn",
+      "description": "Kinaav Corn for Popcorn (Free Seasoning INSIDE)",
+      "image": "green_moong.jpg",
+      "category": "pulses",
+      "variants": [
+        { "weight": "1kg", "sku": "KPCFP01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KPCFP005", "price": 399, "discountedPrice": 199 },
+        { "weight": "200g", "sku": "KPCFP002", "price": 199, "discountedPrice": 99 }
+      ]
+    },
+    {
+      "id": "KFMF",
+      "name": "Kinaav Maize/Makka Flour",
+      "description": "Kinaav Maize/Makka Flour",
+      "image": "green_moong.jpg",
       "category": "flour",
-      "sizes": ["500g", "1KG"]
+      "variants": [
+        { "weight": "1kg", "sku": "KFMF01", "price": 699, "discountedPrice": 349 }
+      ]
+    },
+    {
+      "id": "KFPMBF",
+      "name": "Kinaav Pearl Millet/Bajra Flour",
+      "description": "Kinaav Pearl Millet/Bajra Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFPMBF01", "price": 799, "discountedPrice": 399 }
+      ]
+    },
+    {
+      "id": "KFSMJF",
+      "name": "Kinaav Sorghum Millet/jowar Flour",
+      "description": "Kinaav Sorghum Millet/jowar Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFSMJF01", "price": 799, "discountedPrice": 399 }
+      ]
+    },
+    {
+      "id": "KFFMKF",
+      "name": "Kinaav Foxtail Millet/Kangni Flour",
+      "description": "Kinaav Foxtail Millet/Kangni Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFFMKF01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KFFMKF005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KFFMRF",
+      "name": "Kinaav Finger Millet/Ragi Flour",
+      "description": "Kinaav Finger Millet/Ragi Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFFMRF01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KFFMRF005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KFLMKF",
+      "name": "Kinaav Little Millet/Kutki Flour",
+      "description": "Kinaav Little Millet/Kutki Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFLMKF01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KFLMKF005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KFKMF",
+      "name": "Kinaav Kodo Millet Flour",
+      "description": "Kinaav Kodo Millet Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFKMF01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KFKMF005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KFBMF",
+      "name": "Kinaav Barnyard Millet Flour",
+      "description": "Kinaav Barnyard Millet Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFBMF01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KFBMF005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KFBTMF",
+      "name": "Kinaav Browntop Millet Flour",
+      "description": "Kinaav Browntop Millet Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFBTMF01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KFBTMF005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KFWCSF",
+      "name": "Kinaav Water Chestnut/Singhara Flour",
+      "description": "Kinaav Water Chestnut/Singhara Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFWCSF01", "price": 699, "discountedPrice": 349 }
+      ]
+    },
+    {
+      "id": "KFBKF",
+      "name": "Kinaav Buckwheat/Kuttu Flour",
+      "description": "Kinaav Buckwheat/Kuttu Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFBKF01", "price": 699, "discountedPrice": 349 }
+      ]
+    },
+    {
+      "id": "KFCDFB",
+      "name": "Kinaav Chana Dal Flour/Besan",
+      "description": "Kinaav Chana Dal Flour/Besan",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFCDFB01", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KFCDR",
+      "name": "Kinaav Chana Dal Rava",
+      "description": "Kinaav Chana Dal Rava",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFCDR01", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KFMDF",
+      "name": "Kinaav Moong Dal Halwa Flour",
+      "description": "Kinaav Moong Dal Halwa Flour",
+      "image": "green_moong.jpg",
+      "category": "flour",
+      "variants": [
+        { "weight": "1kg", "sku": "KFMDF01", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMPMB",
+      "name": "Kinaav Pearl Millet/Bajra",
+      "description": "Kinaav Pearl Millet/Bajra",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMPMB01", "price": 799, "discountedPrice": 399 }
+      ]
+    },
+    {
+      "id": "KMSMJ",
+      "name": "Kinaav Sorghum Millet/Jowar",
+      "description": "Kinaav Sorghum Millet/Jowar",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMSMJ01", "price": 799, "discountedPrice": 399 }
+      ]
+    },
+    {
+      "id": "KMFMR",
+      "name": "Kinaav Finger Millet/Ragi",
+      "description": "Kinaav Finger Millet/Ragi",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMFMR01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMFMR005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMBYMS",
+      "name": "Kinaav Barnyard Millet/Samak",
+      "description": "Kinaav Barnyard Millet/Samak",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMBYMS01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMBYMS005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMLMK",
+      "name": "Kinaav Little Millet/Kutki",
+      "description": "Kinaav Little Millet/Kutki",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMLMK01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMLMK005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMFMK",
+      "name": "Kinaav Foxtail Millet/Kangni",
+      "description": "Kinaav Foxtail Millet/Kangni",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMFMK01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMFMK005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMKM",
+      "name": "Kinaav Kodo Millet",
+      "description": "Kinaav Kodo Millet",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMKM01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMKM005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMBM",
+      "name": "Kinaav Barnyard Millet",
+      "description": "Kinaav Barnyard Millet",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMBM01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMBM005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMBTM",
+      "name": "Kinaav Browntop Millet",
+      "description": "Kinaav Browntop Millet",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMBTM01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMBTM005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMPM",
+      "name": "Kinaav Proso Millet",
+      "description": "Kinaav Proso Millet",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMPM01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMPM005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMAMR",
+      "name": "Kinaav Amaranth Millet Ramdana",
+      "description": "Kinaav Amaranth Millet Ramdana",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMAMR01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMAMR005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMQMB",
+      "name": "Kinaav Quinoa Millet Bathua",
+      "description": "Kinaav Quinoa Millet Bathua",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMQMB01", "price": 799, "discountedPrice": 399 },
+        { "weight": "500g", "sku": "KMQMB005", "price": 399, "discountedPrice": 199 }
+      ]
+    },
+    {
+      "id": "KMWCS",
+      "name": "Kinaav Water Chestnut/Singhara",
+      "description": "Kinaav Water Chestnut/Singhara",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMQMB01", "price": 699, "discountedPrice": 349 }
+      ]
+    },
+    {
+      "id": "KMBWK",
+      "name": "Kinaav Buckwheat Whole/Kuttu",
+      "description": "Kinaav Buckwheat Whole/Kuttu",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMBWK01", "price": 699, "discountedPrice": 349 }
+      ]
+    },
+    {
+      "id": "KMBSK",
+      "name": "Kinaav Buckwheat Seed/Kuttu",
+      "description": "Kinaav Buckwheat Seed/Kuttu",
+      "image": "green_moong.jpg",
+      "category": "millet",
+      "variants": [
+        { "weight": "1kg", "sku": "KMBSK01", "price": 699, "discountedPrice": 349 }
+      ]
     }
   ]
 }
