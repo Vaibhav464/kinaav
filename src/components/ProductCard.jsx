@@ -1,12 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import CartContext from '../context/CartContext';  // Import CartContext
 import '../styles/section-2.css';
 
 const ProductCard = ({ product }) => {
-  const { addToCart } = useContext(CartContext);  // Use CartContext
+  const [selectedVariant, setSelectedVariant] = useState(product.variants && product.variants[0]);
+  const isSizeBased = selectedVariant && selectedVariant.size;
+  const isWeightBased = selectedVariant && selectedVariant.weight;
+
+  const handleVariantChange = (e) => {
+    const value = e.target.value;
+    const variant = product.variants.find(v => (isSizeBased ? v.size : v.weight) === value);
+    setSelectedVariant(variant);
+  };
+
+  // Helper to get the value for dropdown/text
+  const getVariantValue = (variant) => isSizeBased ? variant.size : isWeightBased ? variant.weight : '';
 
   return (
     <Link to={`/products/${product.id}`}
@@ -17,24 +25,33 @@ const ProductCard = ({ product }) => {
       <div className="product-info">
         <h3>{product.name}</h3>
         <p className="description">{product.description}</p>
-        <div className="price-cart">
+        <div className="price-variant-row">
           <span className="price">
-            <del>₹{product.price}</del>&nbsp;
-            <ins>₹{product.discountedPrice}</ins>
+            <del>₹{selectedVariant ? selectedVariant.price : ''}</del>&nbsp;
+            <ins>₹{selectedVariant ? selectedVariant.discountedPrice : ''}</ins>
           </span>
-          <button className="add-to-cart" onClick={(e) => {
-              e.preventDefault(); // Prevent link navigation
-              e.stopPropagation(); // Stop event bubbling to the Link
-              addToCart(product);
-            }}>
-            <div className="cart-icon">
-              <FontAwesomeIcon icon={faShoppingCart} />
-              <span className="plus-badge">+</span>
-            </div>
-          </button>
+          {product.variants && product.variants.length > 1 && (
+            <select
+              className="variant-dropdown"
+              value={getVariantValue(selectedVariant)}
+              onChange={handleVariantChange}
+              onClick={e => e.stopPropagation()}
+              onMouseDown={e => e.stopPropagation()}
+              onTouchStart={e => e.stopPropagation()}
+            >
+              {product.variants.map((variant, idx) => (
+                <option key={idx} value={getVariantValue(variant)}>
+                  {getVariantValue(variant)}
+                </option>
+              ))}
+            </select>
+          )}
+          {product.variants && product.variants.length === 1 && (
+            <span className="variant-label single-variant">{getVariantValue(selectedVariant)}</span>
+          )}
         </div>
       </div>
-      </Link>
+    </Link>
   );
 };
 
