@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 import loader from '../components/loader.gif';
 import '../styles/section-2.css';
 
-const ProductList = ({ category, viewAllLink }) => {
+const ProductList = ({ category, viewAllLink, featuredIds }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ const ProductList = ({ category, viewAllLink }) => {
       try {
         console.log('Fetching products for category:', category);
         const response = await fetch('http://localhost:3000/api/products');
-        // const response = await fetch('public/products.json');
+        // const response = await fetch('public/product.json');
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
@@ -29,7 +29,10 @@ const ProductList = ({ category, viewAllLink }) => {
         } else if (category === 'kinaavExclusiveProducts') {
           productsArray = data[0].kinaavExclusiveProducts || [];
         }
-
+        // Filter by featuredIds if provided
+        if (featuredIds && featuredIds.length > 0) {
+          productsArray = productsArray.filter(p => featuredIds.includes(p.id));
+        }
         console.log('Filtered products:', productsArray);
         setProducts(productsArray);
       } else {
@@ -43,7 +46,7 @@ const ProductList = ({ category, viewAllLink }) => {
     };
 
     fetchProducts();
-  }, [category]);
+  }, [category, featuredIds]);
 
   const scrollLeft = () => {
     if (containerRef.current) {

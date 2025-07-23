@@ -9,6 +9,10 @@ import '../styles/section-3.css';
 import '../styles/section-4.css';
 
 const Home = () => {
+  const featuredProductContainerIds = [1, 2, 3, 4, 5, 6, 7, 8];
+  const featuredKinaavIds = [
+    "KPGMW", "KPGMS", "KPGMD", "KPDKC", "KPDGC", "KPCD"
+  ];
 
   return (
     <main>
@@ -20,13 +24,17 @@ const Home = () => {
 
       <section className="secondSection">
       <h2>Featured Products</h2>
-      <ProductList category="productContainer"
-      viewAllLink="/products?category=productContainer"
+      <ProductList
+        category="productContainer"
+        viewAllLink="/products?category=productContainer"
+        featuredIds={featuredProductContainerIds}
       />
       
       <h2>Kinaav Exclusive</h2>
-      <ProductList category="kinaavExclusiveProducts"
-      viewAllLink="/KinaavProducts"
+      <ProductList
+        category="kinaavExclusiveProducts"
+        viewAllLink="/KinaavProducts"
+        featuredIds={featuredKinaavIds}
       />
     </section>
 
