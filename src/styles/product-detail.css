@@ -218,7 +218,7 @@ a{
   .actions {
     flex-direction: column; /* Stack buttons vertically */
     gap: 10px;
-  }
+  } 
 
   .add-to-cart-btn,
   .share-btn {
@@ -227,6 +227,7 @@ a{
   }
 
   .delivery-check input {
+    margin-top: 1rem;
     width: 70%;
     padding: 8px;
   }
