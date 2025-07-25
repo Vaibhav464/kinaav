@@ -11,7 +11,7 @@ import '../styles/section-4.css';
 const Home = () => {
   const featuredProductContainerIds = [1, 2, 3, 4, 5, 6, 7, 8];
   const featuredKinaavIds = [
-    "KPGMW", "KPGMS", "KPGMD", "KPDKC", "KPDGC", "KPCD"
+    "KPGMW", "KPGMS", "KPGMD", "KPDKC", "KPDGC", "KPCD", "KMFMR", "KPCFP"
   ];
 
   return (

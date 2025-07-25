@@ -50,9 +50,9 @@ const KinaavProducts = () => {
 
   // Define Kinaav categories
   const categories = [
-    { name: 'Flour', key: 'flour' },
     { name: 'Pulses', key: 'pulses' },
     { name: 'Millets', key: 'millet' },
+    { name: 'Flour', key: 'flour' },
     { name: 'Spices', key: 'spice' },
   ];
 

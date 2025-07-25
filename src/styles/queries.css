@@ -467,9 +467,9 @@
       flex-direction: column;
     }
 
-    /* body.sidebar-open .whatsapp-btn,
+    body.sidebar-open .whatsapp-btn,
     body.sidebar-open .scroll-top {
-    right: 24rem;
-    } */
+    right: 19rem;
+    }
   }
   

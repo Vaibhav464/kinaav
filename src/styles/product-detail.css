@@ -146,6 +146,7 @@ a{
 }
 
 .delivery-check input {
+  margin-top: 0.5rem;
   padding: 10px;
   margin-right: 10px;
 }
@@ -180,6 +181,7 @@ a{
   }
 
   .product-image-2 img {
+    width: 100%;
     object-fit: contain;
   }
 
