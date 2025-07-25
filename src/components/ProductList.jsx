@@ -14,7 +14,7 @@ const ProductList = ({ category, viewAllLink, featuredIds }) => {
     const fetchProducts = async () => {
       try {
         console.log('Fetching products for category:', category);
-        const response = await fetch('http://localhost:3000/api/products');
+        const response = await fetch('https://kinaav-backend.onrender.com/api/products');
         // const response = await fetch('public/product.json');
         if (!response.ok) {
           throw new Error('Failed to fetch products');
