@@ -28,7 +28,7 @@ const Cart = ({ onClose }) => {
 
         <div className="listCart">
           {Object.values(cart).map((item) => (
-            <div key={item.id} className="item">
+            <div key={item.cartKey} className="item">
               <img src={`/img/${item.image}`} alt={item.name} />
               <div className="content">
                 <div className="name">{item.name}</div>
@@ -40,10 +40,10 @@ const Cart = ({ onClose }) => {
                 <div className="item-price">₹{item.discountedPrice.toLocaleString()} / 1 product</div>
               </div>
               <div className="quantity">
-                {/* Use changeQuantity directly */}
-                <button onClick={() => changeQuantity(item.id, '-')}>-</button>
+                {/* Use changeQuantity with cartKey */}
+                <button onClick={() => changeQuantity(item.cartKey, '-')}>-</button>
                 <span className="value">{item.quantity}</span>
-                <button onClick={() => changeQuantity(item.id, '+')}>+</button>
+                <button onClick={() => changeQuantity(item.cartKey, '+')}>+</button>
               </div>
             </div>
           ))}

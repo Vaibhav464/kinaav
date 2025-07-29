@@ -12,21 +12,29 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
+  // Helper function to generate unique key for cart items
+  const generateCartKey = (product) => {
+    const variantInfo = product.size || product.weight || 'default';
+    return `${product.id}-${variantInfo}`;
+  };
+
   const addToCart = (product) => {
+    const cartKey = generateCartKey(product);
     setCart((prev) => ({
       ...prev,
-      [product.id]: {
+      [cartKey]: {
         ...product,
-        quantity: (prev[product.id]?.quantity || 0) + 1,
+        cartKey, // Store the cart key for reference
+        quantity: (prev[cartKey]?.quantity || 0) + 1,
       },
     }));
   };
 
-  const changeQuantity = (id, type) => {
+  const changeQuantity = (cartKey, type) => {
     console.log('Before update:', cart);
     setCart((prev) => {
       const newCart = { ...prev };
-      const item = newCart[id];
+      const item = newCart[cartKey];
   
       if (!item) return newCart;  // If item doesn't exist, return
       
@@ -42,20 +50,20 @@ export const CartProvider = ({ children }) => {
           return newCart;
       }
       if (newQuantity <= 0) {
-        delete newCart[id];
+        delete newCart[cartKey];
       } else {
-        newCart[id] = { ...item, quantity: newQuantity };
+        newCart[cartKey] = { ...item, quantity: newQuantity };
       }
       console.log('After update:', newCart);
       return newCart;
     });
-};
+  };
 
-return (
-  <CartContext.Provider value={{ cart, addToCart, changeQuantity }}>
-    {children}
-  </CartContext.Provider>
-);
+  return (
+    <CartContext.Provider value={{ cart, addToCart, changeQuantity }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
 export default CartContext;
