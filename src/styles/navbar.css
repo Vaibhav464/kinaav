@@ -310,6 +310,7 @@ header {
   color: white;
   font-size: 1.4rem;
   padding: 0.5rem;
+  z-index: 998;
 }
 
 .user-btn:hover {

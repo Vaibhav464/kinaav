@@ -90,6 +90,17 @@ const Navbar = () => {
                 Products <FontAwesomeIcon icon={faChevronDown} />
               </button>
               <div className="dropdown-content">
+                {/* Kitchen */}
+                <div className="sub-dropdown">
+                  <span>Kitchen <FontAwesomeIcon icon={faChevronRight} /></span>
+                  <div className="sub-dropdown-content">
+                    <Link to="/KinaavProducts">Pulses</Link>
+                    <Link to="/KinaavProducts">Millets</Link>
+                    <Link to="/KinaavProducts">Flour</Link>
+                    <Link to="/KinaavProducts">Spices</Link>
+                  </div>
+                </div>
+
                 {/* Fashion */}
                   <div className="sub-dropdown">
                   <span>Fashion <FontAwesomeIcon icon={faChevronRight} /></span>
@@ -107,16 +118,6 @@ const Navbar = () => {
                     <Link className='disabled' to="/">Bedsheets</Link>
                     <Link className='disabled' to="/">Pillows</Link>
                     <Link className='disabled' to="/">Blankets</Link>
-                  </div>
-                </div>
-
-                {/* Kitchen */}
-                <div className="sub-dropdown">
-                  <span>Kitchen <FontAwesomeIcon icon={faChevronRight} /></span>
-                  <div className="sub-dropdown-content">
-                    <Link to="/KinaavProducts">Flour</Link>
-                    <Link to="/KinaavProducts">Pulses</Link>
-                    <Link to="/KinaavProducts">Millets</Link>
                   </div>
                 </div>
 
@@ -184,6 +185,9 @@ const Navbar = () => {
         {/* Cart sidebar */}
         {isCartOpen && <Cart onClose={() => setIsCartOpen(false)} />}
       </nav>
+      
+      {/* Mobile menu backdrop */}
+      <div className={`backdrop ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(false)} />
     </header>
   );
 };
