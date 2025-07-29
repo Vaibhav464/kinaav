@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import CartContext from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import '../styles/section-2.css';
 import '../styles/global.css';
 
 const Cart = ({ onClose }) => {
-  const { cart, changeQuantity } = useContext(CartContext);
+  const { cart, changeQuantity, removeAll } = useContext(CartContext);
   const navigate = useNavigate();
+  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
 
   const calculateTotal = () => {
     return Object.values(cart).reduce((acc, item) => acc + (item.discountedPrice * item.quantity), 0);
@@ -17,14 +18,33 @@ const Cart = ({ onClose }) => {
     onClose(); // Close the cart sidebar (optional)
   };
 
+  const handleRemoveAll = () => {
+    setShowConfirmPopup(true);
+  };
+
+  const confirmRemoveAll = () => {
+    removeAll();
+    setShowConfirmPopup(false);
+  };
+
+  const cancelRemoveAll = () => {
+    setShowConfirmPopup(false);
+  };
+
   return (
     <>
       <div className={`backdrop ${cart ? 'active' : ''}`} onClick={onClose} />
 
       <div className={`sidebar ${cart ? 'active' : ''}`}>
         <h3>Shopping Cart</h3>
+        {Object.values(cart).length > 0 && (
+          <button className="remove-all-btn" onClick={handleRemoveAll}>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        )}
         <button className="closebtn" onClick={onClose}>x
         </button>
+
 
         <div className="listCart">
           {Object.values(cart).map((item) => (
@@ -67,6 +87,24 @@ const Cart = ({ onClose }) => {
           </button>
         </div>
       </div>
+
+      {/* Confirmation Popup */}
+      {showConfirmPopup && (
+        <div className="confirm-popup-overlay">
+          <div className="confirm-popup">
+            <h4>Remove All Items</h4>
+            <p>Are you sure you want to remove all items from your cart?</p>
+            <div className="confirm-popup-buttons">
+              <button className="confirm-btn" onClick={confirmRemoveAll}>
+                Yes, Remove All
+              </button>
+              <button className="cancel-btn" onClick={cancelRemoveAll}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
