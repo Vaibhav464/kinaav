@@ -25,6 +25,19 @@ const CheckoutPage = () => {
     );
   };
 
+  // Calculate original MRP total
+  const calculateOriginalMRP = () => {
+    return Object.values(cart).reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+  };
+
+  // Calculate total discount
+  const calculateTotalDiscount = () => {
+    return calculateOriginalMRP() - calculateTotal();
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setAddress((prev) => ({ ...prev, [name]: value }));
@@ -93,6 +106,14 @@ const CheckoutPage = () => {
       <div className="payment-summary">
         <h3>Payment Summary</h3>
         <div className="summary-item">
+          <span>Original MRP</span>
+          <span>₹{calculateOriginalMRP().toLocaleString()}</span>
+        </div>
+        <div className="summary-item discount">
+          <span>Product Discount</span>
+          <span>-₹{calculateTotalDiscount().toLocaleString()}</span>
+        </div>
+        <div className="summary-item">
           <span>Subtotal</span>
           <span>₹{calculateTotal().toLocaleString()}</span>
         </div>
@@ -100,13 +121,9 @@ const CheckoutPage = () => {
           <span>Shipping</span>
           <span>Free</span>
         </div>
-        <div className="summary-item">
-          <span>Tax (5%)</span>
-          <span>₹{(calculateTotal() * 0.05).toLocaleString()}</span>
-        </div>
         <div className="summary-item total">
           <span>Total</span>
-          <span>₹{(calculateTotal() * 1.05).toLocaleString()}</span>
+          <span>₹{calculateTotal().toLocaleString()}</span>
         </div>
 
       {/* Place order button */}
@@ -125,10 +142,15 @@ const CheckoutPage = () => {
           <p>Your cart is empty.</p>
         ) : (
           Object.values(cart).map((item) => (
-            <div key={item.id} className="cart-item">
+            <div key={item.cartKey} className="cart-item">
               <img src={`/img/${item.image}`} alt={item.name} />
               <div className="item-details">
                 <div className="item-name">{item.name}</div>
+                {(item.size || item.weight) && (
+                  <div className="item-variant">
+                    {item.size ? `Size: ${item.size}` : `Weight: ${item.weight}`}
+                  </div>
+                )}
                 <div className="item-quantity">Quantity: {item.quantity}</div>
                 <div className="item-price-2">
                   Price: ₹{item.discountedPrice.toLocaleString()}

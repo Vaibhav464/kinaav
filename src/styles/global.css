@@ -356,6 +356,11 @@ body.sidebar-open .scroll-top {
   color: #000;
 }
 
+.payment-summary .summary-item.discount {
+  color: #28a745;
+  font-weight: 500;
+}
+
 .cart-item {
   display: flex;
   align-items: center;
@@ -380,6 +385,13 @@ body.sidebar-open .scroll-top {
   font-weight: bold;
   font-size: 18px;
   color: #333;
+}
+
+.item-variant {
+  margin-top: 5px;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .item-quantity,
