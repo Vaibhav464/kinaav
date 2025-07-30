@@ -251,10 +251,39 @@
       grid-template-columns: 1fr;
     }
   
-    .brands-showcase,
+    .brands-showcase {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .brands-showcase .brand:last-child {
+      grid-column: 1 / -1;
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    .learn-more {
+      display: block;
+      margin: 0 auto;
+      width: fit-content;
+    }
+
     .stats {
       grid-template-columns: repeat(2, 1fr);
     }
+    
+    .stats .stat-item:last-child {
+      grid-column: 1 / -1;
+      margin: 0 auto;
+      width: 50%;
+      text-align: center;
+    }
+
+    .brands-showcase .brand:last-child {
+      grid-column: 1 / -1;
+      margin: 0 auto;
+      width: 50%;
+    }
+    
     .fourthSection {
       padding: 2rem 1rem;
     }

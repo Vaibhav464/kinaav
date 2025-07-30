@@ -59,7 +59,7 @@ const AboutSection = () => {
               <p>Luxury Wear</p>
             </div>
             <div className="brand">
-              <h4>Swastk Retail</h4>
+              <h4>Swastik Retail</h4>
               <p>Sport Wear</p>
             </div>
           </div>
