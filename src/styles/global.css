@@ -342,6 +342,22 @@ body.sidebar-open .scroll-top {
   outline: none;
 }
 
+.address-section input.error {
+  border-color: #dc3545;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
 .payment-summary .summary-item {
   display: flex;
   justify-content: space-between;

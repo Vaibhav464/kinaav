@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +16,54 @@ const CheckoutPage = () => {
     state: '',
     zip: '',
   });
+  const [addressErrors, setAddressErrors] = useState({});
+  const [isAddressValid, setIsAddressValid] = useState(false);
+
+  // Load saved address from localStorage on component mount
+  useEffect(() => {
+    const savedAddress = localStorage.getItem('checkoutAddress');
+    if (savedAddress) {
+      setAddress(JSON.parse(savedAddress));
+    }
+  }, []);
+
+  // Save address to localStorage whenever it changes
+  useEffect(() => {
+    if (address.name || address.street || address.city || address.state || address.zip) {
+      localStorage.setItem('checkoutAddress', JSON.stringify(address));
+    }
+  }, [address]);
+
+  // Validate address fields
+  const validateAddress = () => {
+    const errors = {};
+    
+    if (!address.name.trim()) {
+      errors.name = 'Full name is required';
+    }
+    
+    if (!address.street.trim()) {
+      errors.street = 'Street address is required';
+    }
+    
+    if (!address.city.trim()) {
+      errors.city = 'City is required';
+    }
+    
+    if (!address.state.trim()) {
+      errors.state = 'State is required';
+    }
+    
+    if (!address.zip.trim()) {
+      errors.zip = 'ZIP code is required';
+    } else if (!/^\d{6}$/.test(address.zip.trim())) {
+      errors.zip = 'ZIP code must be 6 digits';
+    }
+
+    setAddressErrors(errors);
+    setIsAddressValid(Object.keys(errors).length === 0);
+    return Object.keys(errors).length === 0;
+  };
 
   // Calculate the total cost of all items in the cart
   const calculateTotal = () => {
@@ -41,10 +89,44 @@ const CheckoutPage = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setAddress((prev) => ({ ...prev, [name]: value }));
+    
+    // Clear error when user starts typing
+    if (addressErrors[name]) {
+      setAddressErrors(prev => ({ ...prev, [name]: '' }));
+    }
   };
 
   const handlePlaceOrder = () => {
-    alert('Order placed successfully!');
+    if (!validateAddress()) {
+      alert('Please fill in all required address fields correctly.');
+      return;
+    }
+
+    if (Object.values(cart).length === 0) {
+      alert('Your cart is empty.');
+      return;
+    }
+
+    // Create order object with address and cart data
+    const order = {
+      id: Date.now(),
+      date: new Date().toISOString(),
+      items: Object.values(cart),
+      total: calculateTotal(),
+      address: address,
+      status: 'Processing'
+    };
+
+    // Save order to localStorage (in a real app, this would go to a database)
+    const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+    existingOrders.push(order);
+    localStorage.setItem('orders', JSON.stringify(existingOrders));
+
+    // Clear cart
+    localStorage.removeItem('cart');
+
+    alert(`Order placed successfully! Order ID: ${order.id}`);
+    navigate('/orders'); // Navigate to orders page
   };
 
   return (
