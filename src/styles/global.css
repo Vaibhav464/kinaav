@@ -255,6 +255,22 @@ body.sidebar-open .scroll-top {
     background-color: #888;
 }
 
+/* Clickable elements in cart */
+.sidebar .listCart .item .name.clickable,
+.sidebar .listCart .item img.clickable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sidebar .listCart .item img.clickable:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cart-product-image.clickable {
+    border-radius: 4px;
+}
+
 /* checkout */
 .checkout-page {
   padding: 20px;

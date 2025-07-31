@@ -31,6 +31,11 @@ const Cart = ({ onClose }) => {
     setShowConfirmPopup(false);
   };
 
+  const handleProductClick = (productId) => {
+    navigate(`/products/${productId}`);
+    onClose(); // Close the cart sidebar when navigating to product detail
+  };
+
   return (
     <>
       <div className={`backdrop ${cart ? 'active' : ''}`} onClick={onClose} />
@@ -39,7 +44,7 @@ const Cart = ({ onClose }) => {
         <h3>Shopping Cart</h3>
         {Object.values(cart).length > 0 && (
           <button className="remove-all-btn" onClick={handleRemoveAll}>
-            <i class="fa fa-trash" aria-hidden="true"></i>
+            <i className="fa fa-trash" aria-hidden="true"></i>
           </button>
         )}
         <button className="closebtn" onClick={onClose}>x
@@ -49,9 +54,21 @@ const Cart = ({ onClose }) => {
         <div className="listCart">
           {Object.values(cart).map((item) => (
             <div key={item.cartKey} className="item">
-              <img src={`/img/${item.image}`} alt={item.name} />
+              <img 
+                src={`/img/${item.image}`} 
+                alt={item.name} 
+                className="cart-product-image clickable"
+                onClick={() => handleProductClick(item.id)}
+                title="Click to view product details"
+              />
               <div className="content">
-                <div className="name">{item.name}</div>
+                <div 
+                  className="name clickable"
+                  onClick={() => handleProductClick(item.id)}
+                  title="Click to view product details"
+                >
+                  {item.name}
+                </div>
                 {(item.size || item.weight) && (
                   <div className="variant-info">
                     {item.size ? `Size: ${item.size}` : `Weight: ${item.weight}`}
