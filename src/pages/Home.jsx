@@ -23,18 +23,18 @@ const Home = () => {
       <hr id="products" />
 
       <section className="secondSection">
-      <h2>Featured Products</h2>
-      <ProductList
-        category="productContainer"
-        viewAllLink="/products?category=productContainer"
-        featuredIds={featuredProductContainerIds}
-      />
-      
       <h2>Kinaav Exclusive</h2>
       <ProductList
         category="kinaavExclusiveProducts"
         viewAllLink="/KinaavProducts"
         featuredIds={featuredKinaavIds}
+        />
+      
+      <h2>Featured Products</h2>
+      <ProductList
+        category="productContainer"
+        viewAllLink="/products?category=productContainer"
+        featuredIds={featuredProductContainerIds}
       />
     </section>
 

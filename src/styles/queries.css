@@ -161,8 +161,8 @@
     }
     
     .cart-count {
-      top: 30px;
-      right: 18px;
+      top: 1.7rem;
+      right: 0.9rem;
     }
 
     .search-icon {
@@ -344,24 +344,15 @@
       justify-content: flex-end;
     }
     
+    .remove-all-btn{
+      right: 6rem;
+    }
+
     .sidebar{
       width: 18rem;
       right: -18rem;
     }
-    
-    /* .exclusive-products-container {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-      gap: 1rem;
-      padding: 1rem;
-      width: 95%;
-      margin: 0 auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    } */
-  
+
     .products-container {
       display: flex;
       flex-wrap: nowrap;
@@ -379,10 +370,7 @@
     .products-container::-webkit-scrollbar {
       display: none;
     }
-    /* .exclusive-products-container::-webkit-scrollbar {
-      display: none;
-    } */
-  
+
     .view-all-container {
       flex: 0 0 auto;
       width: 280px;
