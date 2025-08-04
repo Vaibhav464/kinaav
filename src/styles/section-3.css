@@ -114,6 +114,8 @@
 }
 
 .learn-more {
+    display: block;
+    margin: auto;
     padding: 1rem 2rem;
     background: #3498db;
     color: white;
