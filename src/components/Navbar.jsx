@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch, faChevronDown, faChevronRight, faUser } from '@fortawesome/free-solid-svg-icons';
 import Cart from './Cart';
 import CartContext from '../context/CartContext';
+import { useUser } from '../context/UserContext';
 import '../styles/navbar.css';
 import '../styles/global.css';
-import { supabase } from '../lib/supabaseClient';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +14,9 @@ const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);  // State for cart sidebar visibility
   const [searchTerm, setSearchTerm] = useState('');  // State for search term
   const navigate = useNavigate();  // For navigation
-  const [user, setUser] = useState(null);
+  
+  // Use UserContext to access user data
+  const { user, userData } = useUser();
 
   // Use CartContext to access cart and cart count
   const { cart } = useContext(CartContext);
@@ -31,20 +33,6 @@ const Navbar = () => {
       document.body.classList.remove('sidebar-open');
     }
   }, [isCartOpen]);
-
-  useEffect(() => {
-    // Get current user on mount
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user || null);
-    });
-    // Listen for auth changes
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user || null);
-    });
-    return () => {
-      listener?.subscription.unsubscribe();
-    };
-  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';

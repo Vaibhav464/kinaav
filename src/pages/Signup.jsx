@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faUser, faEnvelope, faLock, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import '../styles/navbar.css';
+import { supabase } from '../lib/supabaseClient';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [emailValid, setEmailValid] = useState(null);
   const [passwordValid, setPasswordValid] = useState(null);
   const navigate = useNavigate();
@@ -39,23 +41,81 @@ const Signup = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username && emailValid && passwordValid) {
-      // Replace this with your actual signup logic (e.g., API call)
-      if (username === 'admin' && password === 'password') {
-        navigate('/'); // Redirect to home page on success
-      } else {
-        setError('Invalid username or password');
-      }
-    } else {
+    
+    if (!username || !emailValid || !passwordValid) {
       setError('Please fill in all fields correctly');
+      return;
+    }
+    
+    try {
+      setLoading(true);
+      setError('');
+      
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: username,
+          }
+        }
+      });
+      
+      if (error) {
+        if (error.message.includes('User already registered')) {
+          setError('This email is already registered. Please sign in instead.');
+        } else {
+          throw error;
+        }
+      } else {
+        alert('Please check your email for verification link!');
+        navigate('/login');
+      }
+    } catch (error) {
+      setError(error.message || 'Error signing up. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleGoogleLogin = () => {
-    // Placeholder for Google login logic
-    console.log('Google login clicked');
+  const handleGoogleSignup = async () => {
+    try {
+      setLoading(true);
+      setError('');
+      
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/`,
+        },
+      });
+      
+      if (error) throw error;
+    } catch (error) {
+      setError(error.message || 'Error signing up with Google. Please try again.');
+      setLoading(false);
+    }
+  };
+
+  const handleFacebookSignup = async () => {
+    try {
+      setLoading(true);
+      setError('');
+      
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'facebook',
+        options: {
+          redirectTo: `${window.location.origin}/`,
+        },
+      });
+      
+      if (error) throw error;
+    } catch (error) {
+      setError(error.message || 'Error signing up with Facebook. Please try again.');
+      setLoading(false);
+    }
   };
 
   return (
@@ -107,18 +167,21 @@ const Signup = () => {
         {passwordValid === true && <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />}
         {passwordValid === false && <FontAwesomeIcon icon={faTimesCircle} className="error-icon" />}
           </div>
-        <button type="submit">Sign Up <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '8px' }} /></button>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Signing up...' : 'Sign Up'} 
+          {!loading && <FontAwesomeIcon icon={faArrowRight} style={{ marginLeft: '8px' }} />}
+        </button>
       </form>
       <div className="signup-section">
           <p>Already have an account? <Link to="/login"><b>Login</b></Link></p>
           <div className='btn'>
-          <button className="google-login" onClick={handleGoogleLogin}>
+          <button className="google-login" onClick={handleGoogleSignup} disabled={loading}>
           <img src="https://img.icons8.com/color/30/000000/google-logo.png" alt="google"/>
-            SignUp
+            {loading ? 'Processing...' : 'SignUp'}
           </button>
-          <button className="facebook-login" onClick={handleGoogleLogin}>
+          <button className="facebook-login" onClick={handleFacebookSignup} disabled={loading}>
           <img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="facebook"/>
-            SignUp
+            {loading ? 'Processing...' : 'SignUp'}
           </button>
           </div>
         </div>

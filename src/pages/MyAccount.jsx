@@ -1,26 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/navbar.css';
 import { supabase } from '../lib/supabaseClient';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../context/UserContext';
 
 const MyAccount = () => {
   const [activeTab, setActiveTab] = useState('profile');
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { userData, fetchUserOrders, updateUserProfile } = useUser();
 
-  // Mock user data
-  const user = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    address: '123 Commerce Street, E-Commerce City, EC 12345',
-    profilePicture: 'https://via.placeholder.com/120', // Placeholder image
-  };
+  // Fetch user orders when orders tab is active
+  useEffect(() => {
+    if (activeTab === 'orders' && userData) {
+      const loadOrders = async () => {
+        const userOrders = await fetchUserOrders();
+        setOrders(userOrders);
+      };
+      loadOrders();
+    }
+  }, [activeTab, userData, fetchUserOrders]);
 
-  // Mock order data
-  const orders = [
-    { id: 'ORD-001', date: '2025-06-20', total: 560, status: 'Delivered', items: 2 },
-    { id: 'ORD-002', date: '2025-06-25', total: 149, status: 'Processing', items: 1 },
-    { id: 'ORD-003', date: '2025-07-01', total: 299, status: 'Shipped', items: 3 },
-  ];
+  // Set loading to false when userData is available
+  useEffect(() => {
+    if (userData) {
+      setLoading(false);
+    }
+  }, [userData]);
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="my-account-container">
+        <div className="my-account-wrapper">
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show login prompt if no user data
+  if (!userData) {
+    return (
+      <div className="my-account-container">
+        <div className="my-account-wrapper">
+          <p>Please log in to view your account.</p>
+          <button onClick={() => navigate('/login')}>Go to Login</button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="my-account-container">
@@ -28,11 +58,11 @@ const MyAccount = () => {
         <aside className="my-account-sidebar">
           <div className="my-account-user-info">
             <img
-              src={user.profilePicture}
+              src={userData.profilePicture || 'https://via.placeholder.com/120'}
               alt="User Profile"
               className="my-account-user-image"
             />
-            <h2 className="my-account-user-name">{user.name}</h2>
+            <h2 className="my-account-user-name">{userData.name || 'User'}</h2>
           </div>
           <nav className="my-account-nav">
             <button
@@ -63,9 +93,21 @@ const MyAccount = () => {
             <section className="my-account-section">
               <h2 className="my-account-section-title">Profile Details</h2>
               <div className="my-account-profile-details">
-                <p><strong>Name:</strong> {user.name}</p>
-                <p><strong>Email:</strong> {user.email}</p>
-                <p><strong>Address:</strong> {user.address}</p>
+                <p><strong>Name:</strong> {userData.name || 'Not set'}</p>
+                <p><strong>Email:</strong> {userData.email}</p>
+                <p><strong>Phone:</strong> {userData.phone || 'Not set'}</p>
+                {userData.addresses && userData.addresses.length > 0 && (
+                  <div>
+                    <p><strong>Addresses:</strong></p>
+                    {userData.addresses.map((address, index) => (
+                      <div key={index} style={{ marginLeft: '20px', marginTop: '10px' }}>
+                        <p>{address.name}</p>
+                        <p>{address.street}</p>
+                        <p>{address.city}, {address.state} {address.zip}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
               <button
                 className="my-account-logout-button"
@@ -87,15 +129,17 @@ const MyAccount = () => {
               ) : (
                 <div className="my-account-orders">
                   {orders.map((order) => (
-                    <div key={order.id} className="my-account-order-card">
+                    <div key={order.orderId} className="my-account-order-card">
                       <div className="my-account-order-header">
-                        <span>Order #{order.id}</span>
-                        <span className="my-account-order-date">{order.date}</span>
+                        <span>Order #{order.orderId}</span>
+                        <span className="my-account-order-date">
+                          {new Date(order.orderDate).toLocaleDateString()}
+                        </span>
                       </div>
                       <div className="my-account-order-details">
-                        <p><strong>Total:</strong> ₹{order.total.toFixed(2)}</p>
-                        <p><strong>Items:</strong> {order.items}</p>
-                        <p><strong>Status:</strong> <span className={`my-account-order-status ${order.status.toLowerCase()}`}>{order.status}</span></p>
+                        <p><strong>Total:</strong> ₹{order.totalAmount?.toFixed(2) || '0.00'}</p>
+                        <p><strong>Items:</strong> {order.items?.length || 0}</p>
+                        <p><strong>Status:</strong> <span className={`my-account-order-status ${order.status?.toLowerCase()}`}>{order.status}</span></p>
                       </div>
                     </div>
                   ))}
@@ -109,24 +153,46 @@ const MyAccount = () => {
               <h2 className="my-account-section-title">Account Settings</h2>
               <div className="my-account-settings">
                 <div className="my-account-settings-form">
-                  <label htmlFor="email">Change Email</label>
+                  <label htmlFor="name">Update Name</label>
                   <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter new email"
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
                     className="my-account-settings-input"
+                    defaultValue={userData.name || ''}
                   />
-                  <button className="my-account-settings-button">Update Email</button>
+                  <button 
+                    className="my-account-settings-button"
+                    onClick={async () => {
+                      const name = document.getElementById('name').value;
+                      if (name.trim()) {
+                        await updateUserProfile({ name: name.trim() });
+                      }
+                    }}
+                  >
+                    Update Name
+                  </button>
                 </div>
                 <div className="my-account-settings-form">
-                  <label htmlFor="password">Change Password</label>
+                  <label htmlFor="phone">Update Phone</label>
                   <input
-                    type="password"
-                    id="password"
-                    placeholder="Enter new password"
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter your phone number"
                     className="my-account-settings-input"
+                    defaultValue={userData.phone || ''}
                   />
-                  <button className="my-account-settings-button">Update Password</button>
+                  <button 
+                    className="my-account-settings-button"
+                    onClick={async () => {
+                      const phone = document.getElementById('phone').value;
+                      if (phone.trim()) {
+                        await updateUserProfile({ phone: phone.trim() });
+                      }
+                    }}
+                  >
+                    Update Phone
+                  </button>
                 </div>
               </div>
             </section>
